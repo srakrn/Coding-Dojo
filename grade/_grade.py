@@ -11,6 +11,7 @@ class Record:
     def __init__(self, score, name=None):
         self.score = score
         self.name = name
+        self.calculate_grade()
         pass
 
     def calculate_grade(self):
@@ -18,5 +19,6 @@ class Record:
         grades = [4, 3.5, 3, 2.5, 2, 1.5, 1, 0]
         for (upper_bound, lower_bound), grade in zip(pair(ranges), grades):
             if self.score >= lower_bound and self.score < upper_bound:
-                return grade
+                self.grade = grade
+                return
         raise IndexError("Score not in range.")

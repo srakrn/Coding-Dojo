@@ -11,8 +11,7 @@ class RecordTest(unittest.TestCase):
         self.assertIsInstance(self.record_a, grade.Record)
 
     def test_grade(self):
-        grade = self.record_a.calculate_grade()
-        self.assertEqual(grade, 3)
+        self.assertEqual(self.record_a.grade, 3)
 
 
 if __name__ == "__main__":
