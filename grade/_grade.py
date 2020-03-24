@@ -49,11 +49,11 @@ class Record:
     def _calculate_grade(self):
         ranges = self.criteria.ranges
         grades = self.criteria.grades
+        if self.score == ranges[0]:
+            self._grade = grades[0]
+            return
         for (upper_bound, lower_bound), grade in zip(pair(ranges), grades):
             if self.score >= lower_bound and self.score < upper_bound:
                 self._grade = grade
                 return
-        if self.score == ranges[0]:
-            return grades[0]
-
         raise IndexError("Score not in range.")
