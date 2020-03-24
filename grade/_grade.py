@@ -23,7 +23,11 @@ class GradeRange:
 
 
 thai_grade_range = GradeRange(
-    [100, 80, 75, 70, 65, 60, 55, 50, 0], ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F']
+    [100, 80, 75, 70, 65, 60, 55, 50, 0], ["A", "B+", "B", "C+", "C", "D+", "D", "F"]
+)
+
+thai_grade_range_wo_charge = GradeRange(
+    [100, 80, 70, 60, 50, 0], ["A", "B", "C", "D", "F"]
 )
 
 
