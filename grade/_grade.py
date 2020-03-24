@@ -22,9 +22,15 @@ class GradeRange:
         return "\n".join(descriptions)
 
 
+thai_grade_range = GradeRange(
+    [100, 80, 75, 70, 65, 60, 55, 50, 0], [4, 3.5, 3, 2.5, 2, 1.5, 1, 0]
+)
+
+
 class Record:
-    def __init__(self, score, name=None):
+    def __init__(self, score, name=None, criteria=thai_grade_range):
         self.name = name
+        self.criteria = criteria
         self.set_score(score)
         pass
 
@@ -41,8 +47,8 @@ class Record:
         self._calculate_grade()
 
     def _calculate_grade(self):
-        ranges = [100, 80, 75, 70, 65, 60, 55, 50, 0]
-        grades = [4, 3.5, 3, 2.5, 2, 1.5, 1, 0]
+        ranges = self.criteria.ranges
+        grades = self.criteria.grades
         for (upper_bound, lower_bound), grade in zip(pair(ranges), grades):
             if self.score >= lower_bound and self.score < upper_bound:
                 self._grade = grade
