@@ -53,5 +53,7 @@ class Record:
             if self.score >= lower_bound and self.score < upper_bound:
                 self._grade = grade
                 return
+        if self.score == ranges[0]:
+            return grades[0]
 
         raise IndexError("Score not in range.")

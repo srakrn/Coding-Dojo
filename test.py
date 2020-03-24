@@ -16,6 +16,7 @@ class GradeRangeTest(unittest.TestCase):
 class RecordTest(unittest.TestCase):
     def setUp(self):
         self.record_a = grade.Record(73, name="Computers and Programming")
+        self.record_b = grade.Record(100, name="Easy subject")
 
     def test_class_type(self):
         self.assertIsInstance(self.record_a, grade.Record)
