@@ -7,11 +7,34 @@ def pair(it):
     return zip(a, b)
 
 
+class GradeRange:
+    def __init__(self, ranges, grades):
+        self.ranges = ranges
+        self.grades = grades
+
+    def __str__(self):
+        return "GradeRange of {} grades at {}".format(len(self.grades), hex(id(self)))
+
+    def info(self):
+        descriptions = []
+        for (upper, lower), grade in zip(pair(self.ranges), self.grades):
+            descriptions.append("{} <= x < {}\t=> {}".format(lower, upper, grade))
+        return "\n".join(descriptions)
+
+
 class Record:
     def __init__(self, score, name=None):
         self.name = name
         self.set_score(score)
         pass
+
+    @property
+    def score(self):
+        return self._score
+
+    @property
+    def grade(self):
+        return self._grade
 
     def set_score(self, score):
         self._score = score
@@ -24,12 +47,5 @@ class Record:
             if self.score >= lower_bound and self.score < upper_bound:
                 self._grade = grade
                 return
+
         raise IndexError("Score not in range.")
-
-    @property
-    def score(self):
-        return self._score
-
-    @property
-    def grade(self):
-        return self._grade

@@ -3,6 +3,16 @@ import unittest
 import grade
 
 
+class GradeRangeTest(unittest.TestCase):
+    def setUp(self):
+        self.grade_range = grade.GradeRange(
+            [100, 80, 75, 70, 65, 60, 55, 50, 0], [4, 3.5, 3, 2.5, 2, 1.5, 1, 0]
+        )
+    def test_print(self):
+        print(str(self.grade_range))
+        print(self.grade_range.info())
+
+
 class RecordTest(unittest.TestCase):
     def setUp(self):
         self.record_a = grade.Record(73, name="Computers and Programming")
